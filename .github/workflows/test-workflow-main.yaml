@@ -1,0 +1,35 @@
+name: test-workflow-main
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  job1:
+    name: Job1 - Log and Sleep Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Start Message
+        run: echo "Workflow started..."
+
+      - name: Sleep for 10 seconds
+        run: sleep 10
+
+      - name: Print End Message
+        run: echo "✅ Workflow completed!"
+
+  job2:
+    name: Job2 - Log and Sleep Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Start Message
+        run: echo "Workflow started..."
+
+      - name: Sleep for 10 seconds
+        run: sleep 10
+
+      - name: Print End Message
+        run: echo "✅ Workflow completed!"
