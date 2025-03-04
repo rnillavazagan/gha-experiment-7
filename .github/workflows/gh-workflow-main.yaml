@@ -1,11 +1,26 @@
 name: gh-workflow-main
-on: [pull_request]
+on:
+  push:
+    branches:
+      - 'main'
 jobs:
-  check-bats-version:
+  commit-changes:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+      
     steps:
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          node-version: '20'
-      - run: npm install -g bats
-      - run: bats -v
+          fetch-depth: 0 
+
+      - name: Make changes
+        run: |
+          echo "New change" >> example.txt  # Modify or generate files
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Automated commit from GitHub Actions" || echo "No changes to commit"
+          git push
+
