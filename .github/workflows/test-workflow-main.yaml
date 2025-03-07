@@ -1,6 +1,9 @@
 name: test-workflow-main
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - "main"
 
 jobs:
   job1:
@@ -15,7 +18,7 @@ jobs:
         run: sleep 10
 
       - name: Print End Message
-        run: echo "✅ Workflow completed!"
+        run: exit 1
 
   job2:
     name: Job2 - Log and Sleep Job
