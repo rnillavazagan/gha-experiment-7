@@ -15,10 +15,10 @@ jobs:
         run: echo "Workflow started..."
 
       - name: Sleep for 10 seconds
-        run: sleep 10
+        run: sleep 59
 
       - name: Print End Message
-        run: exit 1
+        run: "Workflow started..."
 
   job2:
     name: Job2 - Log and Sleep Job
