@@ -1,48 +1,26 @@
-name: test-workflow-main
-
+name: Test Workflow
 on:
   push:
     branches:
-      - "main"
+      - main
 
 jobs:
-  job1:
-    name: Job1 - Log and Sleep Job
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Print Start Message
-        run: echo "Workflow started..."
-
-      - name: Sleep for 50 seconds - 1
+      - name: Build Project
         run: sleep 50
 
-      - name: Sleep for 50 seconds - 2
-        run: sleep 50
-
-      - name: Print End Message
-        run: echo "Workflow started..."
-
-  job2:
-    name: Job2 - Log and Sleep Job
+  test:
     runs-on: ubuntu-latest
-
+    needs: [build]   # Depends on 'build' job
     steps:
-      - name: Print Start Message
-        run: echo "Workflow started..."
+      - name: Run Tests
+        run: sleep 30
 
-      - name: Sleep for 10 seconds
-        run: sleep 10
-
-
-        
-        
-
-
-
-
-
-        
-
-      - name: Print End Message
-        run: echo "✅ Workflow completed!"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build, test]   # Depends on both 'build' and 'test' jobs
+    steps:
+      - name: Deploy
+        run: sleep 50
