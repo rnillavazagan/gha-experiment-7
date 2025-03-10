@@ -14,7 +14,10 @@ jobs:
       - name: Print Start Message
         run: echo "Workflow started..."
 
-      - name: Sleep for 50 seconds
+      - name: Sleep for 50 seconds - 1
+        run: sleep 50
+
+      - name: Sleep for 50 seconds - 2
         run: sleep 50
 
       - name: Print End Message
