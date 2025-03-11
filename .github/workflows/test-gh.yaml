@@ -8,15 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    name: "my first job"
     steps:
       - name: Print Start Message
         run: echo "Workflow started..."
 
-      - name: Sleep for 50 seconds
-        run: sleep 50
+      - name: Sleep for 30 seconds
+        run: sleep 30
 
       - name: Print End Message
         run: echo "Workflow completed..."
-
-
