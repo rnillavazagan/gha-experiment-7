@@ -17,7 +17,8 @@ jobs:
         run: sleep 30
 
       - run: |
-          echo "hello world && fdjfjsdkljfkl jklfjkldsjklfjdsklf jkfdsjklfjdkslf sdkfjkdsjfkldsjf jklfjdslfjkldsjfkl jkldjfkldjsfkld"
+          echo "hello world && fdjfjsdkljfkl jklfjkldsjklfjdsklf end \
+          sdkfjkdsjfkldsjf jklfjdslfjkldsjfkl jkldjfkldjsfkld"
           echo "testing4"
           echo "testing5"
 
