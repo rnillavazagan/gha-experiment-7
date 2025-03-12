@@ -16,7 +16,7 @@ jobs:
       - name: Print a Message
         run: |
           echo "Hello, GitHub Actions!"
-          sleep 150
+          sleep 5
           
       - name: Run My Custom Go Action
         uses: SrimanPadmanabanCB/gha-action@main
