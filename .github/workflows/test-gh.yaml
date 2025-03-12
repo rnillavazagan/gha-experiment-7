@@ -16,8 +16,8 @@ jobs:
       - name: Sleep for 30 seconds
         run: sleep 30
 
-      - name: Print End Message
-        run: echo "Workflow completed..."
+      - run: |
+          echo "hello world"
 
 
 
