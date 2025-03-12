@@ -1,0 +1,31 @@
+name: Simple Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Print a Message
+        run: |
+          echo "Hello, GitHub Actions!"
+          sleep 10
+          
+      - name: Run My Custom Go Action
+        uses: SrimanPadmanabanCB/gha-action@main
+        id: go-action
+        with:
+          name: "test-custom-action"
+          version: 1.0.0
+          url: "docker.io/calculi-corp/gha-action/test-custom-action:latest"
+          digest: "sha256:45b23dee08af5e43a7fea6c4cf9c25ccf269ee113168c19722f87876677c5cb2"
+          type: "docker"
+          cloudbees-url: "https://api.saas-preprod.beescloud.com"
+          cloudbees-pat: "cb_api_4fZoZeYJe5XwkTRUNzVrQRLytTweQJweqNJ+eAxCcmQCSat8ha4CoW4Yg4av8RAroPxxjg72fPvksNCNT4bk6Q=="
