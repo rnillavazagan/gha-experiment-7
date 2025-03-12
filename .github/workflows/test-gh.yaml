@@ -17,7 +17,7 @@ jobs:
         run: sleep 30
 
       - name: Print End Message
-        run: exit 1
+        run: echo "Workflow completed..."
 
 
 
